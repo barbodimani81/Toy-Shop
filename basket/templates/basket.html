@@ -1,0 +1,21 @@
+<!-- basket.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Basket</title>
+</head>
+<body>
+    <h1>Shopping Basket</h1>
+    <ul>
+        {% for product in basket.products.all %}
+            <li>
+                <input type="checkbox" name="products" value="{{ product.id }}" checked disabled>
+                {{ product.title }} - ${{ product.price }}
+            </li>
+        {% endfor %}
+    </ul>
+    <p>Total Price: ${{ basket.total_price }}</p>
+</body>
+</html>
