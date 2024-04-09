@@ -1,0 +1,21 @@
+<!-- payment.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+</head>
+<body>
+    <h1>Payment for Basket {{ basket.id }}</h1>
+    <p>Total Price: {{ basket.total_price }}</p>
+    <form action="{% url 'payment_successful' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Payment Successful</button>
+    </form>
+    <form action="{% url 'payment_unsuccessful' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Payment Unsuccessful</button>
+    </form>
+</body>
+</html>
